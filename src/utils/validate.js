@@ -6,7 +6,7 @@
  * @param {string} path
  * @returns {Boolean}
  */
-export function isExternal(path) {
+export function isExternal (path) {
   return /^(https?:|mailto:|tel:)/.test(path)
 }
 
@@ -14,7 +14,18 @@ export function isExternal(path) {
  * @param {string} str
  * @returns {Boolean}
  */
-export function validUsername(str) {
+export function validUsername (str) {
   const valid_map = ['admin', 'editor']
   return valid_map.indexOf(str.trim()) >= 0
 }
+
+/**
+ *手机号码验证
+ * @param {*} mobile
+ * @returns
+ */
+export const validMobile = (mobile) => {
+  const reg = /^(?:(?:\+|00)86)?1\d{10}$/
+  return reg.test(mobile)
+}
+

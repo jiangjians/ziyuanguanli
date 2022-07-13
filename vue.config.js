@@ -35,6 +35,16 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
+    },
+    proxy: {
+      // 当我们的本地的请求有/api的时候，就会代理我们的请求地址向另外一个服务器发出请求
+      // 匹配
+      // 跨域的本质浏览器的同源策略这个ajax不由浏览器发脚手架发
+      '/jiangjian': {
+        target: 'http://ihrm.itheima.net/', // 跨域请求的地址
+        changeOrigin: true, // 只有true时才能开启跨域
+        pathRewrite: { '^/jiangjian': '' }
+      }
     }
     // 因为我们真正的项目有自己的接口服务器，不用模拟数据，所以这一行没有用
     // before: require('./mock/mock-server.js')
